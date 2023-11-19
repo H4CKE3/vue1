@@ -15,6 +15,11 @@ export default {
   props:{
     list:Array
   },
+  data(){
+    return {
+      
+    }
+  },
   methods:{
     delOne(id){
       this.$emit('del',id)

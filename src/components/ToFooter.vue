@@ -13,7 +13,9 @@ export default {
     len:Number
   },
   data(){
-    
+    return {
+      
+    }
   },
   methods:{
     delAll(){
