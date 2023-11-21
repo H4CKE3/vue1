@@ -11,9 +11,11 @@ li {
 ul {
     padding: 0;
 }
+
 .main {
-    margin:  10vh auto;
+    margin: 10vh auto;
 }
+
 .main .card {
     width: 60vh;
     height: auto;
@@ -131,11 +133,16 @@ ul {
 
 /* 列表 */
 .main th,
-.main td{
-    padding: 3vh;
+.main td {
+    width: 20vh;
     border: 1px solid #3E5F7D;
 }
-table{
+
+table {
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 20vh;
+}
+
+.main input {
+    width: 20vh;
 }

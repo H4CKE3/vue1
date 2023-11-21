@@ -1,40 +1,51 @@
 <template>
   <div>
-    <input @keyup.enter = "change" ref="inp" :value = item.price v-if="showInp" type="text" />
+    <input
+      v-focus
+      @blur="
+        () => {
+          showInp = false;
+        }
+      "
+      @keyup.enter="change"
+      ref="inp"
+      :value="item.price"
+      v-if="showInp"
+      type="text"
+    />
     <div @dblclick="showInput" v-else>{{ item.price }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props:{
-    item:Object
+  props: {
+    item: Object,
   },
   data() {
     return {
       showInp: false,
     };
   },
-  methods:{
-    showInput(){
-      this.showInp = !this.showInp
-      this.$nextTick(()=>{
-        this.$refs.inp.focus()
-      })
+  methods: {
+    showInput() {
+      this.showInp = !this.showInp;
+      // this.$nextTick(() => {
+      //   this.$refs.inp.focus();
+      // });
     },
-    change(e){
-      if(typeof e.target.value !== 'number' ||e.target.value<0){
-        e.target.value = this.item.price
-        alert("价格类型出错")
-        return
+    change(e) {
+      if (e.target.value < 0) {
+        e.target.value = this.item.price;
+        alert("价格类型出错");
+        return;
       }
-      this.showInp = !this.showInp
-      this.$emit("input",e.target.value)
-    }
-  }
+      this.showInp = !this.showInp;
+      this.$emit("input", e.target.value);
+    },
+  },
 };
 </script>
 
 <style>
-
 </style>
